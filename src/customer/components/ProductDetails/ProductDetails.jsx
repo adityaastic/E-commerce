@@ -3,6 +3,9 @@ import { StarIcon } from "@heroicons/react/solid";
 import { RadioGroup } from "@headlessui/react";
 import ProductReviewCard from "./ProductReviewCard";
 import { Box, Button, Grid, LinearProgress, Rating } from "@mui/material";
+import { mens_kurta } from "../../Data/mens_kurta";
+import HomeSectionCard from '../HomeSectionCard/HomeSectionCard';
+
 
 const product = {
   name: "Basic Tee 6-Pack",
@@ -116,7 +119,10 @@ export default function ProductDetails() {
             </div>
             <div className="flex flex-wrap space-x-5 justify-centre">
               {product.images.map((item, index) => (
-                <div key={index} className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg max-w-[5rem] max-h-[5rem] mt-4">
+                <div
+                  key={index}
+                  className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg max-w-[5rem] max-h-[5rem] mt-4"
+                >
                   <img
                     src={item.src}
                     alt={item.alt}
@@ -152,7 +158,9 @@ export default function ProductDetails() {
               <div className="mt-6">
                 <div className="flex items-center space-x-3">
                   <Rating name="read-only" value={reviews.average} readOnly />
-                  <p className="opacity-50 text-sm">{reviews.totalCount} Ratings</p>
+                  <p className="opacity-50 text-sm">
+                    {reviews.totalCount} Ratings
+                  </p>
                   <p className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
                     {reviews.totalCount} Reviews
                   </p>
@@ -279,7 +287,12 @@ export default function ProductDetails() {
 
                 <Button
                   variant="contained"
-                  sx={{ px: "2rem", py: "1rem", bgcolor: "#9155fd", marginTop: "1rem" }}
+                  sx={{
+                    px: "2rem",
+                    py: "1rem",
+                    bgcolor: "#9155fd",
+                    marginTop: "1rem",
+                  }}
                 >
                   Add To Cart
                 </Button>
@@ -387,7 +400,6 @@ export default function ProductDetails() {
                         sx={{ bgcolor: "#d0d0d0", borderRadius: 4, height: 7 }}
                         variant="determinate"
                         value={40}
-                        
                       />
                     </Grid>
                   </Grid>
@@ -424,6 +436,16 @@ export default function ProductDetails() {
                 </Box>
               </Grid>
             </Grid>
+          </div>
+        </section>
+
+        {/* similer products */}
+        <section className = "pt-10">
+          <h1 className="py-5 text-xl font-bold">Similer Products</h1>
+
+          <div className="flex flex-wrap space-y-5">
+            {mens_kurta.map((item) => 
+              <HomeSectionCard product={item}/>)}
           </div>
         </section>
       </div>
