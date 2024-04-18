@@ -1,5 +1,10 @@
 import React from "react";
+import { Grid, Box } from "@mui/material"; // Import Grid and Box components from Material-UI
+import { deepPurple } from "@mui/material/colors"; // Import deepPurple color from Material-UI colors
+import StarBorderIcon from "@mui/icons-material/StarBorder"; // Import StarBorderIcon component from Material-UI icons
 import AddressCard from "../AdressCard/AdressCard"; // Corrected import path
+import OrderTracker from "./OrderTraker";
+
 
 const OrderDetails = () => {
   return (
